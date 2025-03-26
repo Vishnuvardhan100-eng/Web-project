@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book the Tour</title>
+    <link rel="stylesheet" href="book.css">
+</head>
+<body>
+
+    <!-- Popup Form (Always Visible) -->
+    <div class="form-popup" id="bookingForm">
+        <div class="form-container">
+            <div class="form-header">
+                <span>Book the tour</span>
+            </div>
+            <form id="tourForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Full name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Email" required>
+
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" placeholder="Phone" required>
+
+                <label for="date">Travel Date</label>
+                <input type="date" id="date" required>
+
+                <div class="ticket-section">
+                    <div>
+                        <label for="adults">Adults</label>
+                        <input type="number" id="adults" placeholder="Number of tickets" min="1" required>
+                    </div>
+                    <div>
+                        <label for="children">Children</label>
+                        <input type="number" id="children" placeholder="Number of tickets" min="0">
+                    </div>
+                </div>
+
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Message"></textarea>
+
+                <button type="submit" class="submit-btn">BOOK NOW</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="book.js"></script>
+</body>
+</html>

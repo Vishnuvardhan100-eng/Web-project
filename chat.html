@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat With Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+        }
+        .chat-box {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            position: relative;
+            display: block;
+        }
+        .chat-header {
+            background: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .chat-body {
+            height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .chat-input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">Chat with Us</div>
+            <div class="chat-body" id="chatBody"></div>
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." onkeypress="sendMessage(event)">
+        </div>
+    </div>
+    <script>
+        function sendMessage(event) {
+            if (event.key === "Enter") {
+                var input = document.getElementById("chatInput");
+                var message = input.value.trim();
+                if (message) {
+                    var chatBody = document.getElementById("chatBody");
+                    var userMessage = document.createElement("div");
+                    userMessage.textContent = "You: " + message;
+                    chatBody.appendChild(userMessage);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    input.value = "";
+
+                    setTimeout(() => {
+                        var botMessage = document.createElement("div");
+                        botMessage.textContent = "Chat: " + generateReply(message);
+                        chatBody.appendChild(botMessage);
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    }, 500);
+                }
+            }
+        }
+
+        function generateReply(message) {
+            let responses = {
+                "Hi": "Hi there! How can I help you?",
+                "please book my ticket or please cancel my ticket": "Sure! ",
+                "When i get update": "It will takes within 3 working days",
+                "ok thank you": "Thank you for choosing Go Travel India have a grat day ahead!"
+            };
+            return responses[message.toLowerCase()] || "I'm here to chat! Ask me anything.";
+        }
+    </script>
+</body>
+</html>

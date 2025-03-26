@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.price {
+    font-size: 24px;
+    font-weight: bold;
+}
+.original-price {
+    text-decoration: line-through;
+    color: gray;
+    margin-left: 5px;
+}
+.discount {
+    color: green;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.free-delivery {
+    font-size: 14px;
+    color: black;
+    margin-top: 5px;
+}
